@@ -57,12 +57,15 @@ def prnt():
 
 def start():
     prnt()
+    f = open("stop.txt","w")
+    f.write("0")
+    f.close()
     command_line = "python pyPOD_timer.py"
     args = shlex.split(command_line)
     p = subprocess.Popen(args)
 
 def stop():
-    f = open("refresh.txt","w")
+    f = open("stop.txt","w")
     f.write("1")
     f.close()
 
