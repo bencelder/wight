@@ -161,6 +161,13 @@ VOLbox = filemenu.add_checkbutton(label="Volcano Discover Photo of the Day",  va
 global VOLlink
 VOLlink = "http://www.volcanodiscovery.com/photo-of-the-day.html"
 
+
+f = open("exif_info.txt")
+exif = f.readlines()
+f.close
+w = tk.Label(top, text=exif)
+w.pack()
+
 #for i in range(1,len(addedNAMEs)-1):
 #    filemenu.add_command(label=addedNAMEs[i])
 
