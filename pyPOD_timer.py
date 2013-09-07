@@ -7,7 +7,7 @@ def run_timer():
    lines = f.readlines()
    period = lines[0]
    f.close()
-   period = 60
+   sleeptime = 60
    if period == "1min\n":
       sleeptime = 60
    if period == "5min\n":
@@ -33,18 +33,21 @@ def run_timer():
       time.sleep(shortsleeptime)
       timeslept = timeslept + shortsleeptime
       f = open("refresh.txt")
-      rr = f.readlines
+      rr = f.readlines()
       f.close()
       f = open("stop.txt")
-      ss = f.readlines
+      ss = f.readlines()
       f.close()
+      print timeslept
       if ss[0] == "1":
          terminate = 1
          continu = 0
-      else:
       if rr[0] == "1":
          terminate = 1
          print "REFRESHED"
+         f = open("refresh.txt","w")
+         f.write("0")
+         f.close
       if timeslept > sleeptime:
          timeslept = 0
          counter = counter + 1

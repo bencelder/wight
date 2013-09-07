@@ -52,7 +52,7 @@ def prnt():
         f.write(VOLlink+"\n")
     f.close()
     f = open("refresh.txt","w")
-    f.write("0")
+    f.write("1")
     f.close()
 
 def start():
@@ -97,6 +97,16 @@ B = tk.Button(top, text ="STOP", command = stop)
 B.pack()
 B = tk.Button(top, text ="REFRESH", command = prnt)
 B.pack()
+
+B = tk.Button(top, text ="Add URL & Name")
+B.pack()
+URLtxt = tk.StringVar()
+e = tk.Entry(top, textvariable=URLtxt)
+e.pack()
+
+URLname = tk.StringVar()
+e = tk.Entry(top, textvariable=URLname)
+e.pack()
 
 global period
 period = tk.StringVar(top)
