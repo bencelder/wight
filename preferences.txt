@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 1min
+=======
+5min
+>>>>>>> c5bb9e00edce52cf09820a5288f108ee80baf556
 http://apod.nasa.gov/apod/astropix.html
 http://photography.nationalgeographic.com/photography/photo-of-the-day/

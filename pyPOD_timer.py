@@ -1,6 +1,6 @@
 def run_timer():
    import time
-   import sys, time, msvcrt
+   import sys, time
    import shutil
 
    f = open('preferences.txt')
