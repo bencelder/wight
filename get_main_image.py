@@ -1,6 +1,7 @@
 import urllib2
 import urllib
-import os
+import os, shutil
+import glob
 from BeautifulSoup import BeautifulSoup as bs
 from urllib2 import urlopen
 
@@ -48,25 +49,42 @@ def dl_image(url, out='temp/'):
     # get the filename
     urllib.urlretrieve( url, out + get_url_filename(url))
 
+def rmdir(path):
+    files = glob.glob(path + '*')
+    for f in files:
+        os.remove(f)
+    os.rmdir(path)
+
 
 # download all images to a temp folder
 def dump_images(url, out='temp/'):
     for link in get_img_links(url):
         dl_image(link, out)
 
+def get_main_img(url, out='wallpapers/'):
+    
+    temp = 'temp/'
+    if os.path.exists(temp):
+        shutil.rmtree(temp)
+
+    dump_images(url, temp)
+
+    #find the largest file in the group
+    files = glob.glob(temp + '*')
+    biggest_file = files[0]
+    for f in files:
+        if os.path.getsize(f) > os.path.getsize(biggest_file):
+            biggest_file = f
+
+    shutil.move(biggest_file, 'current_image')
+    rmdir(temp)
+
 
 url = 'http://apod.nasa.gov/apod/astropix.html'
-url = 'http://photography.nationalgeographic.com/photography/photo-of-the-day/'
+#url = 'http://web.stagram.com/photooftheday/'
+url = 'http://www.earthshots.org/'
+url = 'http://epod.usra.edu/'
+#url = 'http://photography.nationalgeographic.com/photography/photo-of-the-day/'
 #link = 'http://apod.nasa.gov/apod/image/1309/sgra_gasChandra_900c.jpg'
-#dl_image(link)
-dump_images(url)
 
-#print get_url_filename(link)
-
-#for link in get_img_links(url):
-    #print link
-
-
-#bits = url.split('/')
-#bits = bits[0:-1]
-#print bits
+get_main_img(url)
