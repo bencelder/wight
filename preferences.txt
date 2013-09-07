@@ -1,2 +1,2 @@
-Period
+5min
 http://apod.nasa.gov/apod/astropix.html
