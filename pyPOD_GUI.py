@@ -2,9 +2,9 @@
 
 # example treeviewcolumn.py
 
-import pygtk
+import pygtk as gtk
 pygtk.require('2.0')
-import gtk
+#import gtk
 import webbrowser
 
 class LinkTitle:
