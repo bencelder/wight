@@ -61,7 +61,7 @@ def dump_images(url, out='temp/'):
     for link in get_img_links(url):
         dl_image(link, out)
 
-def get_main_img(url, out='wallpapers/'):
+def get_main_image(url, out='wallpapers/'):
     
     temp = 'temp/'
     if os.path.exists(temp):
