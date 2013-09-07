@@ -105,17 +105,17 @@ B.pack()
 B = tk.Button(top, text ="REFRESH", command = prnt)
 B.pack()
 
-B = tk.Button(top, text ="Add URL & Name",command=lambda:addURL(URLtxt.get(),URLname.get()))
-B.pack()
-global URLtxt
-URLtxt = tk.StringVar()
-e = tk.Entry(top, textvariable=URLtxt)
-e.pack()
+#B = tk.Button(top, text ="Add URL & Name",command=lambda:addURL(URLtxt.get(),URLname.get()))
+#B.pack()
+#global URLtxt
+#URLtxt = tk.StringVar()
+#e = tk.Entry(top, textvariable=URLtxt)
+#e.pack()
 
-global URLname
-URLname = tk.StringVar()
-e = tk.Entry(top, textvariable=URLname)
-e.pack()
+#global URLname
+#URLname = tk.StringVar()
+#e = tk.Entry(top, textvariable=URLname)
+#e.pack()
 
 global period
 period = tk.StringVar(top)
@@ -124,18 +124,18 @@ period.set("Period") # default value
 w = tk.OptionMenu(top, period, "Period","1min","5min", "30min", "1hr","3hr","12hr","24hr")
 w.pack()
 
-global addedURLs
-global addedNAMEs
-addedURLs = []
-addedNAMEs = []
-addedNAMEs.append("Remove Link")
+#global addedURLs
+#global addedNAMEs
+#addedURLs = []
+#addedNAMEs = []
+#addedNAMEs.append("Remove Link")
 
-global variable
-variable = tk.StringVar(top)
-variable.set(addedNAMEs[0]) # default value
+#global variable
+#variable = tk.StringVar(top)
+#variable.set(addedNAMEs[0]) # default value
 
-w = apply(tk.OptionMenu, (top, variable) + tuple(addedNAMEs))
-w.pack()
+#w = apply(tk.OptionMenu, (top, variable) + tuple(addedNAMEs))
+#w.pack()
 
 global NASAvar
 NASAvar = tk.BooleanVar()
@@ -161,8 +161,8 @@ VOLbox = filemenu.add_checkbutton(label="Volcano Discover Photo of the Day",  va
 global VOLlink
 VOLlink = "http://www.volcanodiscovery.com/photo-of-the-day.html"
 
-for i in range(1,len(addedNAMEs)-1):
-    filemenu.add_command(label=addedNAMEs[i])
+#for i in range(1,len(addedNAMEs)-1):
+#    filemenu.add_command(label=addedNAMEs[i])
 
 top.mainloop()
 
