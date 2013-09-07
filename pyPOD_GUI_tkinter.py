@@ -74,6 +74,8 @@ def stop():
 def addURL(URL,NAME):
     addedURLs.append(URL)
     addedNAMEs.append(NAME)
+    URLtxt = ""
+    URLname = ""
 
     
 # create a menu
@@ -105,10 +107,12 @@ B.pack()
 
 B = tk.Button(top, text ="Add URL & Name",command=lambda:addURL(URLtxt.get(),URLname.get()))
 B.pack()
+global URLtxt
 URLtxt = tk.StringVar()
 e = tk.Entry(top, textvariable=URLtxt)
 e.pack()
 
+global URLname
 URLname = tk.StringVar()
 e = tk.Entry(top, textvariable=URLname)
 e.pack()
@@ -158,7 +162,7 @@ global VOLlink
 VOLlink = "http://www.volcanodiscovery.com/photo-of-the-day.html"
 
 for i in range(1,len(addedNAMEs)-1):
-    menubar.add_command(label=addedNAMEs[i])
+    filemenu.add_command(label=addedNAMEs[i])
 
 top.mainloop()
 
