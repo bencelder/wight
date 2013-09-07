@@ -1,6 +1,7 @@
 import Tkinter as tk
 import webbrowser
-import pyPOD_timer
+#import pyPOD_timer
+import shlex, subprocess
 top = tk.Tk()
 
 def visitURL():
@@ -50,10 +51,22 @@ def prnt():
     if VOLvar.get():
         f.write(VOLlink+"\n")
     f.close()
-    f = open("haschanged.txt","w")
-    f.write("yes")
+    f = open("refresh.txt","w")
+    f.write("0")
     f.close()
-    
+
+def start():
+    prnt()
+    command_line = "python pyPOD_timer.py"
+    args = shlex.split(command_line)
+    p = subprocess.Popen(args)
+
+def stop():
+    f = open("refresh.txt","w")
+    f.write("1")
+    f.close()
+
+
     
 # create a menu
 menu = tk.Menu(top)
@@ -72,6 +85,14 @@ menu.add_cascade(label="Websites", menu=filemenu)
 #link = "http://apod.nasa.gov/apod/image/1309/sgra_gasChandra.jpg"
 linkname = "Current Image URL"
 B = tk.Button(top, text =linkname, command = visitURL)
+B.pack()
+
+
+B = tk.Button(top, text ="START", command = start)
+B.pack()
+B = tk.Button(top, text ="STOP", command = stop)
+B.pack()
+B = tk.Button(top, text ="REFRESH", command = prnt)
 B.pack()
 
 global period
