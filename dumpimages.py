@@ -1,6 +1,7 @@
 import urllib2
+import urllib
 from BeautifulSoup import BeautifulSoup as bs
-from urllib2 import urlopen
+#from urllib2 import urlopen
 
 def get_html(url):
     response = urllib2.urlopen(url)
@@ -15,6 +16,9 @@ def get_url_base(url):
     ri = url.rfind('/')
     return url[0:ri+1]
 
+def get_url_filename(url):
+    ri = url.rfind('/')
+    return url[ri+1:]
 
 def get_img_links(url):
     #html = get_html(url)
@@ -37,11 +41,24 @@ def get_img_links(url):
         img_links.append(link)
     return img_links
 
+def dl_image(url, out='temp/'):
+    # get the filename
+    urllib.urlretrieve( url, out + get_url_filename(url))
+
+
+# download all images to a temp folder
+def dump_images(url, out='temp'):
+    pass
+
 
 url = 'http://apod.nasa.gov/apod/astropix.html'
+link = 'http://apod.nasa.gov/apod/image/1309/sgra_gasChandra_900c.jpg'
+dl_image(link, '')
+#print get_url_filename(link)
+
 #url = 'http://photography.nationalgeographic.com/photography/photo-of-the-day/'
-for link in get_img_links(url):
-    print link
+#for link in get_img_links(url):
+    #print link
 
 
 #bits = url.split('/')
