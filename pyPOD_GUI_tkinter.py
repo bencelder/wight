@@ -50,6 +50,8 @@ def prnt():
         f.write(NATGEOlink+"\n")
     if VOLvar.get():
         f.write(VOLlink+"\n")
+    for i in range(1,len(addedURLs)-1):
+        f.write(addedURLs[i]+"\n")
     f.close()
     f = open("refresh.txt","w")
     f.write("1")
@@ -69,8 +71,9 @@ def stop():
     f.write("1")
     f.close()
 
-#def addURL(URL,NAME):
-    
+def addURL(URL,NAME):
+    addedURLs.append(URL)
+    addedNAMEs.append(NAME)
 
     
 # create a menu
@@ -100,7 +103,7 @@ B.pack()
 B = tk.Button(top, text ="REFRESH", command = prnt)
 B.pack()
 
-B = tk.Button(top, text ="Add URL & Name")
+B = tk.Button(top, text ="Add URL & Name",command=lambda:addURL(URLtxt.get(),URLname.get()))
 B.pack()
 URLtxt = tk.StringVar()
 e = tk.Entry(top, textvariable=URLtxt)
@@ -122,8 +125,6 @@ global addedNAMEs
 addedURLs = []
 addedNAMEs = []
 addedNAMEs.append("Remove Link")
-addedNAMEs.append("N1")
-addedNAMEs.append("N2")
 
 global variable
 variable = tk.StringVar(top)
@@ -155,6 +156,9 @@ VOLbox = filemenu.add_checkbutton(label="Volcano Discover Photo of the Day",  va
 #VOLbox.pack()
 global VOLlink
 VOLlink = "http://www.volcanodiscovery.com/photo-of-the-day.html"
+
+for i in range(1,len(addedNAMEs)-1):
+    menubar.add_command(label=addedNAMEs[i])
 
 top.mainloop()
 
