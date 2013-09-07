@@ -87,4 +87,4 @@ url = 'http://epod.usra.edu/'
 #url = 'http://photography.nationalgeographic.com/photography/photo-of-the-day/'
 #link = 'http://apod.nasa.gov/apod/image/1309/sgra_gasChandra_900c.jpg'
 
-get_main_img(url)
+#get_main_img(url)
