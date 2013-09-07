@@ -69,6 +69,8 @@ def stop():
     f.write("1")
     f.close()
 
+#def addURL(URL,NAME):
+    
 
     
 # create a menu
@@ -115,6 +117,20 @@ period.set("Period") # default value
 w = tk.OptionMenu(top, period, "Period","1min","5min", "30min", "1hr","3hr","12hr","24hr")
 w.pack()
 
+global addedURLs
+global addedNAMEs
+addedURLs = []
+addedNAMEs = []
+addedNAMEs.append("Remove Link")
+addedNAMEs.append("N1")
+addedNAMEs.append("N2")
+
+global variable
+variable = tk.StringVar(top)
+variable.set(addedNAMEs[0]) # default value
+
+w = apply(tk.OptionMenu, (top, variable) + tuple(addedNAMEs))
+w.pack()
 
 global NASAvar
 NASAvar = tk.BooleanVar()
