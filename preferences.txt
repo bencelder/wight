@@ -1,3 +1,2 @@
 Period
-http://photography.nationalgeographic.com/photography/photo-of-the-day/
-http://www.volcanodiscovery.com/photo-of-the-day.html
+http://apod.nasa.gov/apod/astropix.html
