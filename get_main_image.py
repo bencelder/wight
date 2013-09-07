@@ -80,11 +80,9 @@ def get_main_image(url, out='wallpapers/'):
     rmdir(temp)
 
 
-url = 'http://apod.nasa.gov/apod/astropix.html'
+#url = 'http://apod.nasa.gov/apod/astropix.html'
 #url = 'http://web.stagram.com/photooftheday/'
-url = 'http://www.earthshots.org/'
-url = 'http://epod.usra.edu/'
+#url = 'http://www.earthshots.org/'
+#url = 'http://epod.usra.edu/'
 #url = 'http://photography.nationalgeographic.com/photography/photo-of-the-day/'
 #link = 'http://apod.nasa.gov/apod/image/1309/sgra_gasChandra_900c.jpg'
-
-#get_main_img(url)
